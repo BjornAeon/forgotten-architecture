@@ -43,6 +43,13 @@ a{color:var(--gold2)}
 h1{color:var(--gold);font-size:clamp(1.7rem,6.5vw,2.8rem);line-height:1.2;margin:0 0 .5rem}
 .sub{font-style:italic;font-size:1.2rem;color:var(--text);margin:0 0 .4rem}
 .edition{font-family:Cinzel,"Times New Roman",serif;letter-spacing:.12em;color:var(--gold);font-size:1.05rem;margin:0 0 .6rem;opacity:.9}
+.choose-h{margin:0 0 .6rem;color:var(--text);font-weight:700}
+.choose{display:grid;grid-template-columns:1fr;gap:.6rem;max-width:520px;margin:0 auto}
+.opt{display:flex;align-items:center;gap:.8rem;text-align:left;text-decoration:none;color:#140f02;background:linear-gradient(180deg,var(--gold2),var(--gold));border-radius:14px;padding:.7rem 1rem;min-height:56px;box-shadow:0 6px 20px rgba(216,180,90,.25);transition:transform .15s}
+.opt:hover{transform:translateY(-2px)}.opt:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+.opt b{display:block;font-family:Cinzel,"Times New Roman",serif;letter-spacing:.04em;font-size:1.05rem}.opt small{display:block;font-size:.9rem;opacity:.85}
+.sw{flex:0 0 auto;width:34px;height:44px;border-radius:4px;border:2px solid}
+@media(min-width:780px){.choose{grid-template-columns:repeat(3,1fr);margin:0;max-width:600px}.opt{flex-direction:column;text-align:center;gap:.5rem}}
 .by{color:var(--muted);margin:0 0 1.6rem}
 .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:1rem 1.6rem;min-height:48px;transition:transform .15s,box-shadow .15s}
 .btn:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
@@ -83,8 +90,13 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
     <p class="edition">The AEON Edition</p>
     <p class="sub">Recovering the True Origin of Humanity and the Cosmos</p>
     <p class="by">by Bjorn Aeolus</p>
-    <a class="btn primary" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition.pdf" download>Download the free book (PDF)</a>
-    <span class="meta">Complete book · 316 pages · PDF, about 23 MB (Wi-Fi recommended)</span>
+    <p class="choose-h">Download the free book (PDF) — choose your reading style:</p>
+    <div class="choose" role="group" aria-label="Choose a reading version">
+      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition.pdf" download><span class="sw" style="background:#fff;border-color:#bbb"></span><span><b>Classic</b><small>White pages · 23 MB</small></span></a>
+      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition-Dark.pdf" download><span class="sw" style="background:#121212;border-color:#d8b45a"></span><span><b>Dark</b><small>Light text on black · 23 MB</small></span></a>
+      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition-Sepia.pdf" download><span class="sw" style="background:#F4ECD8;border-color:#8e5c2a"></span><span><b>Sepia</b><small>Warm cream paper · 23 MB</small></span></a>
+    </div>
+    <span class="meta">Complete book · 316 pages · Wi-Fi recommended. Tip: most phone and tablet PDF readers also have a night mode.</span>
   </div>
 </header>
 
