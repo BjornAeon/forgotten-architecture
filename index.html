@@ -195,5 +195,18 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
   if(!n){document.getElementById('pay-empty').hidden=false;box.hidden=true;}
 })();
 </script>
+<script>
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest("a[href$='.pdf']"); if(!a) return;
+  var f=decodeURIComponent(a.getAttribute('href').split('/').pop());
+  var g=a.closest('.choose'), L={en:'English',es:'Español',pt:'Português (Brasil)','pt-BR':'Português (Brasil)',de:'Deutsch',fr:'Français',ar:'العربية'};
+  var lang=(g&&g.getAttribute('lang'))||'en', v=a.querySelector('b');
+  var title=(L[lang]||(g&&g.getAttribute('aria-label'))||lang)+' — '+(v?v.textContent.trim():f);
+  if(window.goatcounter&&typeof window.goatcounter.count==='function'){
+    window.goatcounter.count({path:'download/'+f,title:title,event:true});
+  }
+});
+</script>
+<script data-goatcounter="https://forgottenarchitecture.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
