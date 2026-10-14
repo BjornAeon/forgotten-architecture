@@ -137,6 +137,20 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
     </div>
     <span class="meta" lang="ar" dir="rtl">العربية · الكتاب كاملًا · 372 صفحة.</span>
     </div>
+    <p class="choose-h" lang="hi" style="margin-top:1.2rem">हिन्दी में डाउनलोड करें (PDF) — अपनी पढ़ने की शैली चुनें:</p>
+    <div class="choose" role="group" aria-label="हिन्दी संस्करण" lang="hi">
+      <a class="opt" href="assets/Vastavikta-Ki-Vismrit-Vastukala-AEON.pdf" download><span class="sw" style="background:#fff;border-color:#bbb"></span><span><b>क्लासिक</b><small>सफ़ेद पन्ने · 36 MB</small></span></a>
+      <a class="opt" href="assets/Vastavikta-Ki-Vismrit-Vastukala-AEON-Dark.pdf" download><span class="sw" style="background:#121212;border-color:#d8b45a"></span><span><b>डार्क</b><small>काले पर हल्का पाठ · 37 MB</small></span></a>
+      <a class="opt" href="assets/Vastavikta-Ki-Vismrit-Vastukala-AEON-Sepia.pdf" download><span class="sw" style="background:#F4ECD8;border-color:#8e5c2a"></span><span><b>सेपिया</b><small>गर्म क्रीम काग़ज़ · 37 MB</small></span></a>
+    </div>
+    <span class="meta" lang="hi">हिन्दी · पूरी किताब · 323 पृष्ठ।</span>
+    <p class="choose-h" lang="ru" style="margin-top:1.2rem">Скачать на русском (PDF) — выберите стиль чтения:</p>
+    <div class="choose" role="group" aria-label="Русское издание" lang="ru">
+      <a class="opt" href="assets/Zabytaya-Arkhitektura-Realnosti-AEON.pdf" download><span class="sw" style="background:#fff;border-color:#bbb"></span><span><b>Классика</b><small>Белые страницы · 22 МБ</small></span></a>
+      <a class="opt" href="assets/Zabytaya-Arkhitektura-Realnosti-AEON-Dark.pdf" download><span class="sw" style="background:#121212;border-color:#d8b45a"></span><span><b>Тёмная</b><small>Светлый текст на чёрном · 22 МБ</small></span></a>
+      <a class="opt" href="assets/Zabytaya-Arkhitektura-Realnosti-AEON-Sepia.pdf" download><span class="sw" style="background:#F4ECD8;border-color:#8e5c2a"></span><span><b>Сепия</b><small>Тёплая кремовая бумага · 22 МБ</small></span></a>
+    </div>
+    <span class="meta" lang="ru">Русский · полная книга · 357 страниц.</span>
   </div>
 </header>
 
@@ -199,7 +213,7 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest("a[href$='.pdf']"); if(!a) return;
   var f=decodeURIComponent(a.getAttribute('href').split('/').pop());
-  var g=a.closest('.choose'), L={en:'English',es:'Español',pt:'Português (Brasil)','pt-BR':'Português (Brasil)',de:'Deutsch',fr:'Français',ar:'العربية'};
+  var g=a.closest('.choose'), L={en:'English',es:'Español',pt:'Português (Brasil)','pt-BR':'Português (Brasil)',de:'Deutsch',fr:'Français',ar:'العربية',hi:'हिन्दी',ru:'Русский'};
   var lang=(g&&g.getAttribute('lang'))||'en', v=a.querySelector('b');
   var title=(L[lang]||(g&&g.getAttribute('aria-label'))||lang)+' — '+(v?v.textContent.trim():f);
   if(window.goatcounter&&typeof window.goatcounter.count==='function'){
