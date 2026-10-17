@@ -25,11 +25,9 @@
 /* ==== SUPPORT CONFIG — fill in handles; empty ones are hidden ==== */
 window.SUPPORT = [
   // Each entry renders a card. Empty "handle" => card hidden. "qr" optional.
-  { service: "Revolut",  handle: "@bjorn_aeo", url: "https://revolut.me/bjorn_aeo", qr: "assets/revolut-qr.png" },
   { service: "Chime",    handle: "$BjornAeo",  url: "https://app.chime.com/link/qr?u=BjornAeo", qr: "assets/chime-qr.png" },
-  { service: "Cash App", handle: "$BjornAeo",  url: "https://cash.app/$BjornAeo", qr: "assets/cashapp-qr.png" },
-  { service: "Venmo",    handle: "", url: "", qr: "" },  // e.g. "@Your-Venmo", "https://venmo.com/u/Your-Venmo"
-  { service: "PayPal",   handle: "", url: "", qr: "" }   // e.g. "YourName", "https://paypal.me/YourName"
+  { service: "Revolut",  handle: "@Bjorn_Aeo", url: "https://revolut.me/bjorn_aeo", qr: "assets/revolut-qr.png" },
+  { service: "PayPal",   handle: "@BjornAeo",  url: "https://paypal.me/BjornAeo", qr: "" }
 ];
 </script>
 <style>
@@ -95,11 +93,12 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
     <p class="by">by Bjorn Aeolus</p>
     <p class="choose-h">Download the free book (PDF) — choose your reading style:</p>
     <div class="choose" role="group" aria-label="Choose a reading version">
-      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition.pdf" download><span class="sw" style="background:#fff;border-color:#bbb"></span><span><b>Classic</b><small>White pages · 23 MB</small></span></a>
-      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition-Dark.pdf" download><span class="sw" style="background:#121212;border-color:#d8b45a"></span><span><b>Dark</b><small>Light text on black · 23 MB</small></span></a>
-      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition-Sepia.pdf" download><span class="sw" style="background:#F4ECD8;border-color:#8e5c2a"></span><span><b>Sepia</b><small>Warm cream paper · 23 MB</small></span></a>
+      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition.pdf" download><span class="sw" style="background:#fff;border-color:#bbb"></span><span><b>Classic</b><small>White pages · 20 MB</small></span></a>
+      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition-Dark.pdf" download><span class="sw" style="background:#121212;border-color:#d8b45a"></span><span><b>Dark</b><small>Light text on black · 20 MB</small></span></a>
+      <a class="opt" href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition-Sepia.pdf" download><span class="sw" style="background:#F4ECD8;border-color:#8e5c2a"></span><span><b>Sepia</b><small>Warm cream paper · 20 MB</small></span></a>
     </div>
-    <span class="meta">Complete book · 344 pages · Wi-Fi recommended. Tip: most phone and tablet PDF readers also have a night mode.</span>
+    <span class="meta">Complete book · 365 pages · Wi-Fi recommended. Tip: most phone and tablet PDF readers also have a night mode.</span>
+    <p class="meta"><a href="assets/The-Forgotten-Architecture-of-Reality-AEON-Edition.epub" download>Download EPUB</a> · 19 MB</p>
     <p class="choose-h" lang="es" style="margin-top:1.2rem">Descargar en español (PDF) — elige tu estilo de lectura:</p>
     <div class="choose" role="group" aria-label="Versión en español" lang="es">
       <a class="opt" href="assets/La-Arquitectura-Olvidada-de-la-Realidad-Edicion-AEON.pdf" download><span class="sw" style="background:#fff;border-color:#bbb"></span><span><b>Clásico</b><small>Páginas blancas · 23 MB</small></span></a>
@@ -171,9 +170,9 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
     <div class="pay" id="pay"></div>
     <noscript>
       <ul style="list-style:none;padding:0;margin:1rem 0;font-size:1.1rem;line-height:2">
-        <li>Revolut: <a href="https://revolut.me/bjorn_aeo" style="color:#e9c46a">revolut.me/bjorn_aeo</a></li>
-        <li>Chime: <a href="https://app.chime.com/link/qr?u=BjornAeo" style="color:#e9c46a">$BjornAeo on Chime</a></li>
-        <li>Cash App: <a href="https://cash.app/$BjornAeo" style="color:#e9c46a">cash.app/$BjornAeo</a></li>
+        <li>Chime: <a href="https://app.chime.com/link/qr?u=BjornAeo" style="color:#e9c46a">$BjornAeo</a></li>
+        <li>Revolut: <a href="https://revolut.me/bjorn_aeo" style="color:#e9c46a">@Bjorn_Aeo</a></li>
+        <li>PayPal: <a href="https://paypal.me/BjornAeo" style="color:#e9c46a">@BjornAeo</a></li>
       </ul>
     </noscript>
     <p id="pay-empty" class="meta" hidden>Support links coming soon.</p>
@@ -211,7 +210,7 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
 </script>
 <script>
 document.addEventListener('click',function(e){
-  var a=e.target.closest&&e.target.closest("a[href$='.pdf']"); if(!a) return;
+  var a=e.target.closest&&e.target.closest("a[href$='.pdf'],a[href$='.epub']"); if(!a) return;
   var f=decodeURIComponent(a.getAttribute('href').split('/').pop());
   var g=a.closest('.choose'), L={en:'English',es:'Español',pt:'Português (Brasil)','pt-BR':'Português (Brasil)',de:'Deutsch',fr:'Français',ar:'العربية',hi:'हिन्दी',ru:'Русский'};
   var lang=(g&&g.getAttribute('lang'))||'en', v=a.querySelector('b');
