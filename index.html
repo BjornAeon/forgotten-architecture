@@ -125,5 +125,7 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
   if (pr) { var e = document.createElement('p'); e.textContent = 'Sale ends Nov 9.'; pr.parentNode.insertBefore(e, pr.nextSibling); }
 })();
 </script>
+<div id="fa-cd" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#e8c766;text-align:center;padding:10px;font:600 15px sans-serif;z-index:999"></div>
+<script>(function(){var e=new Date('2026-11-10T07:59:00Z'),d=document.getElementById('fa-cd');function t(){var m=e-new Date();if(m<=0){d.remove();return}var D=Math.floor(m/864e5),H=Math.floor(m/36e5)%24,M=Math.floor(m/6e4)%60;d.textContent='$8.88 sale ends in '+D+'d '+H+'h '+M+'m';}t();setInterval(t,3e4)})();</script>
 </body>
 </html>
