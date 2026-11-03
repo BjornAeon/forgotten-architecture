@@ -107,5 +107,23 @@ footer{text-align:center;color:var(--muted);font-size:.95rem;border-top:1px soli
   <p>© 2026 Bjorn Aeolus</p>
 </footer>
 <script data-goatcounter="https://forgottenarchitecture.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var END = Date.parse('2026-11-10T07:59:00Z');
+  if (!(Date.now() < END)) return;
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n, list = [];
+  while ((n = w.nextNode())) if (n.nodeValue.indexOf('$11.88') !== -1) list.push(n);
+  list.forEach(function(t){
+    var parts = t.nodeValue.split('$11.88'), f = document.createDocumentFragment();
+    parts.forEach(function(p, i){
+      if (i) { var s = document.createElement('s'); s.textContent = '$11.88'; f.appendChild(s); f.appendChild(document.createTextNode(' $8.88')); }
+      f.appendChild(document.createTextNode(p));
+    });
+    t.parentNode.replaceChild(f, t);
+  });
+  var pr = document.querySelector('.price');
+  if (pr) { var e = document.createElement('p'); e.textContent = 'Sale ends Nov 9.'; pr.parentNode.insertBefore(e, pr.nextSibling); }
+})();
+</script>
 </body>
 </html>
