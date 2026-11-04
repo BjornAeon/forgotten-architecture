@@ -11,3 +11,4 @@ The AEON Edition. 59 chapters. Classic, Dark and Sepia versions, PDF and EPUB.
 
 - [Architecture Briefs](https://bjornaeon.github.io/architecture-briefs/)
 - [The Aeolus Index](https://bjornaeon.github.io/aeolus-index-offer/)
+- [Founding Reader Circle](https://bjornaeon.github.io/founding-reader-circle/)
