@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<title>The Forgotten Architecture of Reality — Bjorn Aeolus</title>
+<style>
+body{margin:0;background:#07070f;color:#e9e4d6;font:1.1rem/1.6 Georgia,serif;text-align:center}
+.w{max-width:620px;margin:0 auto;padding:2.5rem 1.25rem}
+img{width:min(70vw,260px);border-radius:4px;box-shadow:0 0 40px rgba(216,180,90,.25)}
+h1{color:#d8b45a;font-size:1.8rem;line-height:1.25;margin:1.2rem 0 .4rem}
+.s{font-style:italic;margin:0 0 .3rem}.b{color:#b3ac9b;margin:0 0 1.6rem}
+.g{display:grid;gap:.7rem}
+button{font:700 1.05rem Georgia,serif;color:#140f02;background:linear-gradient(180deg,#f2d98c,#d8b45a);border:0;border-radius:999px;padding:1rem;cursor:pointer}
+button:disabled{opacity:.6;cursor:wait}#m{color:#b3ac9b;min-height:1.5em;margin-top:1rem}
+</style></head><body><div class="w">
+<img src="../../assets/cover.jpg" alt="Book cover">
+<h1>The Forgotten Architecture of Reality</h1>
+<p class="s">Recovering the True Origin of Humanity and the Cosmos</p>
+<p class="b">Bjorn Aeolus</p>
+<div class="g" id="g"></div><p id="m"></p></div>
+<script>
+const F=[["Download Classic Interior (print-ready PDF)", "Public-Classic-Interior-PRINT.pdf", "application/pdf", "0.bin"], ["Download Dark Interior (print-ready PDF)", "Public-Dark-Interior-PRINT.pdf", "application/pdf", "1.bin"], ["Download Sepia Interior (print-ready PDF)", "Public-Sepia-Interior-PRINT.pdf", "application/pdf", "2.bin"]];
+const g=document.getElementById('g'),m=document.getElementById('m');
+const h=new URLSearchParams(location.hash.slice(1)).get('k');
+function b64(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
+if(!h){m.textContent='This link is incomplete.'}else{
+F.forEach(([label,name,type,bin])=>{const x=document.createElement('button');x.textContent=label;x.onclick=async()=>{
+ const all=g.querySelectorAll('button');all.forEach(y=>y.disabled=true);m.textContent='Downloading '+label+'…';
+ try{const key=await crypto.subtle.importKey('raw',b64(h),'AES-GCM',false,['decrypt']);
+  const r=await fetch(bin);if(!r.ok)throw 0;const d=new Uint8Array(await r.arrayBuffer());
+  const p=await crypto.subtle.decrypt({name:'AES-GCM',iv:d.slice(0,12)},key,d.slice(12));
+  const u=URL.createObjectURL(new Blob([p],{type}));const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(u),60000);m.textContent=label+' downloaded.';
+ }catch(e){m.textContent='Download failed. Please try again.'}
+ all.forEach(y=>y.disabled=false)};g.appendChild(x)})}
+</script></body></html>
